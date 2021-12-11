@@ -6,10 +6,10 @@ const GetClock = () => {
     const d = new Date();
     const newMonth= d.getMonth();
     const newDate= d.getDate(); 
-    const newYear = d.getFullYear();
-    const newHour = d.getHours();
-    const newMin= d.getMinutes()
-    var meridiem = " ";
+    let newYear = d.getFullYear();
+    let newHour = d.getHours();
+    let newMin= d.getMinutes()
+    let meridiem = " ";
 
     if (newYear<1000) {
         newYear += 1000;
@@ -25,6 +25,9 @@ const GetClock = () => {
     }
     else{
         meridiem = " PM"
+        if (newHour >= 13){
+            newHour = newHour - 12;
+        }
     }
     document.getElementById('currTime').innerHTML = `${allMonths[newMonth]} ${newDate}, ${newYear} ${newHour}:${newMin}${meridiem} `;
 
