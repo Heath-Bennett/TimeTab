@@ -1,0 +1,40 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+main.bg {
+    background-image: url("./nubble.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.center {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#currTime{
+    font-size: 250px;
+    margin-bottom: 0;
+    color:midnightblue;
+    text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
+}
+
+#currDate {
+    font-Size: 100px;
+    margin-top: 0;
+    position: relative;
+    top: -50px;
+    color:midnightblue;
+    text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
+}
+
+

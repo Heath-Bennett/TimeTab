@@ -29,8 +29,8 @@ const GetClock = () => {
             newHour = newHour - 12;
         }
     }
-    document.getElementById('currTime').innerHTML = `${allMonths[newMonth]} ${newDate}, ${newYear} ${newHour}:${newMin}${meridiem} `;
-
+    document.getElementById('currTime').innerHTML = `${newHour}:${newMin}${meridiem}`;
+    document.getElementById('currDate').innerHTML = `${allMonths[newMonth]} ${newDate}, ${newYear}`;
 };
 
 window.onload=function(){
