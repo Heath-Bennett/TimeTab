@@ -9,21 +9,23 @@ const GetClock = () => {
     const newYear = d.getFullYear();
     const newHour = d.getHours();
     const newMin= d.getMinutes()
-    const meridiem = " ";
+    var meridiem = " ";
 
     if (newYear<1000) {
         newYear += 1000;
-    };
-
-    if (newHour == 0){
-        meridiem = " AM";
-        newHour = 12;
-    }
-    else if (newHour == 12){
-        meridiem = " PM";
-        newHour -= 12;
     }
 
+    if (newMin <= 9){
+        newMin = "0" + newMin;
+    }
+
+    
+    if (newHour >= 0 && newHour <= 11){
+        meridiem = " AM"
+    }
+    else{
+        meridiem = " PM"
+    }
     document.getElementById('currTime').innerHTML = `${allMonths[newMonth]} ${newDate}, ${newYear} ${newHour}:${newMin}${meridiem} `;
 
 };
