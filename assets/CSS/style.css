@@ -4,7 +4,7 @@ body, html {
 }
 
 main.bg {
-    background-image: url("./nubble.jpg");
+    background-image: url("./texasRoadhouse.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@ div.center {
 #currTime{
     font-size: 250px;
     margin-bottom: 0;
-    color:midnightblue;
+    color:#8C031C;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
 }
 
@@ -33,7 +33,7 @@ div.center {
     margin-top: 0;
     position: relative;
     top: -50px;
-    color:midnightblue;
+    color:#8C031C;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
 }
 
