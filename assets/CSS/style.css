@@ -4,7 +4,7 @@ body, html {
 }
 
 main.bg {
-    background-image: url("./texasRoadhouse.jpg");
+    background-image: url(../Images/texasRoadhouse.jpg);
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
