@@ -8,7 +8,7 @@ const GetClock = () => {
     const newDate= d.getDate(); 
     let newYear = d.getFullYear();
     let newHour = d.getHours();
-    let newMin= d.getMinutes()
+    let newMin= d.getMinutes();
     let meridiem = " ";
 
     if (newYear<1000) {

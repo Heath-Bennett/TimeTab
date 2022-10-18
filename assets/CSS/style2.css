@@ -26,15 +26,15 @@ div.center {
     margin-bottom: 0;
     color:#8C031C;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
+    
+    
 }
 
 #currDate {
     font-Size: 100px;
     margin-top: 0;
     position: relative;
-    top: -50px;
+    top: -80px;
     color:#8C031C;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
 }
-
-
