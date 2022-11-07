@@ -5,10 +5,16 @@ const allMonths = new Array("January", "February", "March", "April", "May", "Jun
 
 const time = document.getElementById("currTime");
 const date = document.getElementById("currDate");
+let speedLabel = document.getElementById("speedLabel");
+
+
+//get the value of speed from the range element
+document.querySelector('#speed').onchange = s =>{
+    speedLabel.innerHTML = "Speed: " + s.target.value;
+}
 
 //change the font color of time
 document.querySelector('#color-select-time').onchange = t =>{
-    console.log(t.target.value);
     time.style.color = t.target.value;
 };
 
@@ -29,7 +35,8 @@ document.querySelector('#color-select-dshadow').onchange = ds =>{
 
 let slideIndex = 0;
 showSlides();
-//
+
+//functionality for the changing of slides
 function showSlides() {
     let i;
     let slides = document.getElementsByClassName("mySlides");
