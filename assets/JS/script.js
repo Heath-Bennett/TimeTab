@@ -7,9 +7,24 @@ const time = document.getElementById("currTime");
 const date = document.getElementById("currDate");
 
 //change the font color of time
-document.querySelector('#color-select-time').onchange = e =>{
-    console.log(e.target.value);
-    time.style.color = e.target.value;
+document.querySelector('#color-select-time').onchange = t =>{
+    console.log(t.target.value);
+    time.style.color = t.target.value;
+};
+
+//change the font color of date
+document.querySelector('#color-select-date').onchange = d =>{
+    date.style.color = d.target.value;
+};
+
+//change the shadow color of time
+document.querySelector('#color-select-tshadow').onchange = ts =>{
+    time.style.textShadow = "0 0 3px" + ts.target.value + ", 0 0 5px" + ts.target.value;
+};
+
+//change the shadow color of date
+document.querySelector('#color-select-dshadow').onchange = ds =>{
+    date.style.textShadow = "0 0 3px" + ds.target.value + ", 0 0 5px" + ds.target.value;
 };
 
 let slideIndex = 0;

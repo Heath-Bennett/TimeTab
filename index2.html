@@ -4,8 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width", initial-scale="1">
         <title>Time Tab Rochester</title>
-       
-        <link rel="stylesheet" href="./assets/CSS/style2.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Geostar+Fill&family=Lobster&family=Monoton&family=Permanent+Marker&family=Poor+Story&family=Xanh+Mono&display=swap" rel="stylesheet">        <link rel="stylesheet" href="./assets/CSS/style2.css"/>
+
+        <!--font-family: 'Dancing Script', cursive;
+            font-family: 'Geostar Fill', cursive;
+            font-family: 'Lobster', cursive;
+            font-family: 'Monoton', cursive;
+            font-family: 'Permanent Marker', cursive;
+            font-family: 'Poor Story', cursive;
+            font-family: 'Xanh Mono', monospace;-->
     </head>
     <body>
         
@@ -49,7 +58,7 @@
                     <form id="controls">
                         <div class="row" id="appearance">
                             <h3>Appearance</h3>
-                            <label for="font-select">Choose a font:</label>
+                            <label for="font-select">Font:</label>
                             <select name="fonts" id="font-select">
                                 <option value="">--Please choose an option--</option>
                                 <option value="option one">Option One</option>
@@ -59,10 +68,22 @@
                                 <option value="option five">Option Five</option>
                             </select>
                             <div>
-                                <label for="color-select-time">Choose a font color for time:</label>
+                                <label for="color-select-time">Time Color:</label>
                                 <input type="color" id="color-select-time">
                             </div>
-                            <label for="theme-select">Choose a theme:</label>
+                            <div>
+                                <label for="color-select-tshadow">Time Shadow:</label>
+                                <input type="color" id="color-select-tshadow">
+                            </div>
+                            <div>
+                                <label for="color-select-date">Date Color:</label>
+                                <input type="color" id="color-select-date">
+                            </div>
+                            <div>
+                                <label for="color-select-dshadow">Date Shadow:</label>
+                                <input type="color" id="color-select-dshadow">
+                            </div>
+                            <label for="theme-select">Theme:</label>
                             <select name="themes" id="theme-select">
                                 <option value="">--Please choose an option--</option>
                                 <option value="animals">Animals</option>
