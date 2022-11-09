@@ -33,22 +33,60 @@ document.querySelector('#color-select-dshadow').onchange = ds =>{
     date.style.textShadow = "0 0 3px" + ds.target.value + ", 0 0 5px" + ds.target.value;
 };
 
-let slideIndex = 0;
-showSlides();
-
 //functionality for the changing of slides
-function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+let slideIndex = 1;
+let slideOn = 0;
+showSlides(slideIndex);//this calls the function for the slides
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+};// this advances the slide n amount of times
+
+function startSlide () {
+    if (slideOn === 0){
+        plusSlides(1);
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 15000); // Change image every 15 seconds
-}
-//creates clock
+    setTimeout(startSlide, 15000);
+};// this starts the slideshow
+
+function pauseSlide () {
+    console.log('reached pauseSlide')
+    slideOn = 1;
+    console.log("slideOn's value is: " + slideOn);
+}// this pauses the slideshow
+
+document.querySelector('#play').onclick = () => {
+    slideOn = 0;
+    startSlide();
+};//this listens for the play button to be clicked then calls the startSlide function
+
+document.querySelector('#next').onclick = () => {
+    plusSlides(1);
+};//this listens for the next button then calls the plusSlides function
+
+document.querySelector('#previous').onclick = () => {
+    plusSlides(-1);
+};//this listens for the previous button then calls the plusSlides function
+
+document.querySelector('#pause').onclick = () => {
+    pauseSlide();
+};//this listens for the pauseSlide button then calls the pauseSlide function
+
+
+
+function showSlides(n) {
+    let slides = document.getElementsByClassName("mySlides");
+    
+    if (n > slides.length) {slideIndex = 1};
+    if (n < 1) {slideIndex = slides.length}
+    for (let i = 0; i < slides.length; i++){
+        slides[i].style.display="none";
+    }
+    
+    slides[slideIndex-1].style.display = "block";
+    }// displays the slides and restarts them at one if the end is reached. 
+    
+    //creates clock
 const GetClock = () => {
     const d = new Date();
     const newMonth= d.getMonth();
