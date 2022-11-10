@@ -6,11 +6,13 @@ const allMonths = new Array("January", "February", "March", "April", "May", "Jun
 const time = document.getElementById("currTime");
 const date = document.getElementById("currDate");
 let speedLabel = document.getElementById("speedLabel");
+let slideShowSpeed = 15000;
 
 
 //get the value of speed from the range element
 document.querySelector('#speed').onchange = s =>{
     speedLabel.innerHTML = "Speed: " + s.target.value;
+    slideShowSpeed = s.target.value;
 }
 
 //change the font color of time
@@ -35,7 +37,7 @@ document.querySelector('#color-select-dshadow').onchange = ds =>{
 
 //functionality for the changing of slides
 let slideIndex = 1;
-let slideOn = 0;
+let t;
 showSlides(slideIndex);//this calls the function for the slides
 
 function plusSlides(n) {
@@ -43,16 +45,16 @@ function plusSlides(n) {
 };// this advances the slide n amount of times
 
 function startSlide () {
-    if (slideOn === 0){
+    
         plusSlides(1);
-    }
-    setTimeout(startSlide, 15000);
+    
+    t = setTimeout(startSlide, slideShowSpeed);
 };// this starts the slideshow
 
 function pauseSlide () {
-    console.log('reached pauseSlide')
-    slideOn = 1;
-    console.log("slideOn's value is: " + slideOn);
+    
+    clearTimeout(t);
+    
 }// this pauses the slideshow
 
 document.querySelector('#play').onclick = () => {
