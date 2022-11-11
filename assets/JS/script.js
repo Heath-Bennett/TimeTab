@@ -45,16 +45,13 @@ function plusSlides(n) {
 };// this advances the slide n amount of times
 
 function startSlide () {
-    
-        plusSlides(1);
-    
+    clearTimeout(t)
+    plusSlides(1);
     t = setTimeout(startSlide, slideShowSpeed);
 };// this starts the slideshow
 
 function pauseSlide () {
-    
     clearTimeout(t);
-    
 }// this pauses the slideshow
 
 document.querySelector('#play').onclick = () => {
