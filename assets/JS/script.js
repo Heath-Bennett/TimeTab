@@ -12,7 +12,7 @@ let slideShowSpeed = 15000;
 //get the value of speed from the range element
 document.querySelector('#speed').onchange = s =>{
     speedLabel.innerHTML = "Speed: " + s.target.value;
-    slideShowSpeed = s.target.value;
+    slideShowSpeed = s.target.value * 1000;
 }
 
 //change the font color of time
@@ -71,7 +71,12 @@ document.querySelector('#pause').onclick = () => {
     pauseSlide();
 };//this listens for the pauseSlide button then calls the pauseSlide function
 
-
+document.querySelector('#font-select').onchange = () => {
+    if (document.querySelector('#font-select').value === 'lobster'){
+        document.querySelector('#currTime').style.fontFamily = 'lobster, cursive';
+    }
+    
+}
 
 function showSlides(n) {
     let slides = document.getElementsByClassName("mySlides");
