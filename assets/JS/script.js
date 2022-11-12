@@ -38,6 +38,8 @@ document.querySelector('#color-select-dshadow').onchange = ds =>{
 //functionality for the changing of slides
 let slideIndex = 1;
 let t;
+const selectFont = document.querySelector('#font-select');
+const currentTime = document.querySelector('#currTime');
 showSlides(slideIndex);//this calls the function for the slides
 
 function plusSlides(n) {
@@ -71,12 +73,35 @@ document.querySelector('#pause').onclick = () => {
     pauseSlide();
 };//this listens for the pauseSlide button then calls the pauseSlide function
 
-document.querySelector('#font-select').onchange = () => {
-    if (document.querySelector('#font-select').value === 'lobster'){
-        document.querySelector('#currTime').style.fontFamily = 'lobster, cursive';
+selectFont.onchange = () => {
+    if (selectFont.value === 'lobster'){
+        currentTime.style.fontFamily = 'lobster, cursive';
+        currentTime.style.fontSize = '260px'
     }
-    
-}
+    else if (selectFont.value === 'geostarFill'){
+        currentTime.style.fontFamily = '"Geostar Fill", cursive';
+        currentTime.style.fontSize = '160px'
+    }
+    else if (selectFont.value === 'dancingScript'){
+        currentTime.style.fontFamily = '"Dancing Script", cursive';
+        currentTime.style.fontSize = '260px'
+    }
+    else if (selectFont.value === 'monoton'){
+        currentTime.style.fontFamily = '"Monoton", cursive';
+        currentTime.style.fontSize = '220px'
+    }
+    else if (selectFont.value === 'permanentMarker'){
+        currentTime.style.fontFamily = '"Permanent Marker", cursive';
+        currentTime.style.fontSize = '240px'
+    }
+    else if (selectFont.value === 'poorStory'){
+        currentTime.style.fontFamily = '"Poor Story", cursive';
+        currentTime.style.fontSize = '300px'
+    }else if (selectFont.value === 'xanhMono'){
+        currentTime.style.fontFamily = '"Xanh Mono", monospace';
+        currentTime.style.fontSize = '250px'
+    }
+}//this listens for the font-select drop down menu and applies the appropriate font
 
 function showSlides(n) {
     let slides = document.getElementsByClassName("mySlides");
