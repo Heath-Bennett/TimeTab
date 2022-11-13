@@ -40,6 +40,7 @@ let slideIndex = 1;
 let t;
 const selectFont = document.querySelector('#font-select');
 const currentTime = document.querySelector('#currTime');
+const timeStyle = document.querySelector('#time-style');
 showSlides(slideIndex);//this calls the function for the slides
 
 function plusSlides(n) {
@@ -101,7 +102,19 @@ selectFont.onchange = () => {
         currentTime.style.fontFamily = '"Xanh Mono", monospace';
         currentTime.style.fontSize = '250px'
     }
-}//this listens for the font-select drop down menu and applies the appropriate font
+};//this listens for the font-select drop down menu and applies the appropriate font
+
+document.querySelector('#time-style').onchange = () => {
+    if (timeStyle.value === 'italic'){
+        currentTime.style.fontStyle = "italic";
+    }
+    else if (timeStyle.value === 'bold'){
+        currentTime.style.fontWeight = 'bold';
+    }
+    else if (timeStyle.value === 'underline'){
+        currentTime.style.textDecoration = 'underline';
+    }
+};//*******************needs to be updated*******************************/
 
 function showSlides(n) {
     let slides = document.getElementsByClassName("mySlides");
