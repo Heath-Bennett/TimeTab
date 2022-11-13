@@ -111,6 +111,39 @@ document.querySelector('#underline-time').onclick = () => {
     }
 }//adds and removes underline from time
 
+document.querySelector('#italic-date').onclick = () => {
+    if (isDateItalicPressed === 0){
+        isDateItalicPressed = 1;
+        currentDate.style.fontStyle = "italic";
+    }
+    else {
+        isDateItalicPressed = 0;
+        currentDate.style.fontStyle = 'normal';
+    }
+};//Adds and removes Italics from date
+
+document.querySelector('#bold-date').onclick = () => {
+    if (isDateBoldPressed === 0){
+        isDateBoldPressed = 1;
+        currentDate.style.fontWeight = 'bold';
+    }
+    else {
+        isDateBoldPressed = 0;
+        currentDate.style.fontWeight = 'normal';
+    }
+};//Adds and removes Bold from date
+
+document.querySelector('#underline-date').onclick = () => {
+    if (isDateUnderlinePressed === 0){
+        isDateUnderlinePressed = 1;
+        currentDate.style.textDecoration = 'underline';
+    }
+    else {
+        isDateUnderlinePressed = 0;
+        currentDate.style.textDecoration = 'none';
+    }
+}//adds and removes underline from time
+
 selectFontTime.onchange = () => {
     if (selectFontTime.value === 'lobster'){
         currentTime.style.fontFamily = 'lobster, cursive';
