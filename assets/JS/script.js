@@ -38,9 +38,12 @@ document.querySelector('#color-select-dshadow').onchange = ds =>{
 //functionality for the changing of slides
 let slideIndex = 1;
 let t;
-const selectFont = document.querySelector('#font-select');
+const selectFontTime = document.querySelector('#font-select-time');
 const currentTime = document.querySelector('#currTime');
 const timeStyle = document.querySelector('#time-style');
+const selectFontDate =  document.querySelector('#font-select-date');
+const currentDate = document.querySelector('#currDate');
+const dateStyle = document.querySelector('#date-style');
 showSlides(slideIndex);//this calls the function for the slides
 
 function plusSlides(n) {
@@ -74,35 +77,67 @@ document.querySelector('#pause').onclick = () => {
     pauseSlide();
 };//this listens for the pauseSlide button then calls the pauseSlide function
 
-selectFont.onchange = () => {
-    if (selectFont.value === 'lobster'){
+selectFontTime.onchange = () => {
+    if (selectFontTime.value === 'lobster'){
         currentTime.style.fontFamily = 'lobster, cursive';
-        currentTime.style.fontSize = '260px'
+        currentTime.style.fontSize = '248px'
     }
-    else if (selectFont.value === 'geostarFill'){
+    else if (selectFontTime.value === 'geostarFill'){
         currentTime.style.fontFamily = '"Geostar Fill", cursive';
-        currentTime.style.fontSize = '160px'
+        currentTime.style.fontSize = '146px'
     }
-    else if (selectFont.value === 'dancingScript'){
+    else if (selectFontTime.value === 'dancingScript'){
         currentTime.style.fontFamily = '"Dancing Script", cursive';
-        currentTime.style.fontSize = '260px'
+        currentTime.style.fontSize = '234px'
     }
-    else if (selectFont.value === 'monoton'){
+    else if (selectFontTime.value === 'monoton'){
         currentTime.style.fontFamily = '"Monoton", cursive';
-        currentTime.style.fontSize = '220px'
+        currentTime.style.fontSize = '190px'
     }
-    else if (selectFont.value === 'permanentMarker'){
+    else if (selectFontTime.value === 'permanentMarker'){
         currentTime.style.fontFamily = '"Permanent Marker", cursive';
-        currentTime.style.fontSize = '240px'
+        currentTime.style.fontSize = '210px'
     }
-    else if (selectFont.value === 'poorStory'){
+    else if (selectFontTime.value === 'poorStory'){
         currentTime.style.fontFamily = '"Poor Story", cursive';
-        currentTime.style.fontSize = '300px'
-    }else if (selectFont.value === 'xanhMono'){
-        currentTime.style.fontFamily = '"Xanh Mono", monospace';
-        currentTime.style.fontSize = '250px'
+        currentTime.style.fontSize = '280px'
     }
-};//this listens for the font-select drop down menu and applies the appropriate font
+    else if (selectFontTime.value === 'xanhMono'){
+        currentTime.style.fontFamily = '"Xanh Mono", monospace';
+        currentTime.style.fontSize = '234px'
+    }
+};//this listens for the font-select-time drop down menu and applies the appropriate font
+
+selectFontDate.onchange = () => {
+    if (selectFontDate.value === 'lobster'){
+        currentDate.style.fontFamily = 'lobster, cursive';
+        currentDate.style.fontSize = '120px'
+    }
+    else if (selectFontDate.value === 'geostarFill'){
+        currentDate.style.fontFamily = '"Geostar Fill", cursive';
+        currentDate.style.fontSize = '70px'
+    }
+    else if (selectFontDate.value === 'dancingScript'){
+        currentDate.style.fontFamily = '"Dancing Script", cursive';
+        currentDate.style.fontSize = '120px'
+    }
+    else if (selectFontDate.value === 'monoton'){
+        currentDate.style.fontFamily = '"Monoton", cursive';
+        currentDate.style.fontSize = '80px'
+    }
+    else if (selectFontDate.value === 'permanentMarker'){
+        currentDate.style.fontFamily = '"Permanent Marker", cursive';
+        currentDate.style.fontSize = '100px'
+    }
+    else if (selectFontDate.value === 'poorStory'){
+        currentDate.style.fontFamily = '"Poor Story", cursive';
+        currentDate.style.fontSize = '130px'
+    }
+    else if (selectFontDate.value === 'xanhMono'){
+        currentDate.style.fontFamily = '"Xanh Mono", monospace';
+        currentDate.style.fontSize = '110px'
+    }
+};//this listens for the font-select-date drop down menu and applies the appropriate font
 
 document.querySelector('#time-style').onchange = () => {
     if (timeStyle.value === 'italic'){
