@@ -1,12 +1,22 @@
 
-
+//Declare Variables
 const allMonths = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-
-
+let slideShowSpeed = 15000;
+let slideIndex = 1;
+let isTimeItalicPressed = 0;
+let isTimeBoldPressed = 0;
+let isTimeUnderlinePressed = 0;
+let isDateItalicPressed = 0;
+let isDateBoldPressed = 0;
+let isDateUnderlinePressed = 0;
+let t;
 const time = document.getElementById("currTime");
 const date = document.getElementById("currDate");
-let speedLabel = document.getElementById("speedLabel");
-let slideShowSpeed = 15000;
+const speedLabel = document.getElementById("speedLabel");
+const selectFontTime = document.querySelector('#font-select-time');
+const currentTime = document.querySelector('#currTime');
+const selectFontDate =  document.querySelector('#font-select-date');
+const currentDate = document.querySelector('#currDate');
 
 
 //get the value of speed from the range element
@@ -35,15 +45,6 @@ document.querySelector('#color-select-dshadow').onchange = ds =>{
     date.style.textShadow = "0 0 3px" + ds.target.value + ", 0 0 5px" + ds.target.value;
 };
 
-//functionality for the changing of slides
-let slideIndex = 1;
-let t;
-const selectFontTime = document.querySelector('#font-select-time');
-const currentTime = document.querySelector('#currTime');
-const timeStyle = document.querySelector('#time-style');
-const selectFontDate =  document.querySelector('#font-select-date');
-const currentDate = document.querySelector('#currDate');
-const dateStyle = document.querySelector('#date-style');
 showSlides(slideIndex);//this calls the function for the slides
 
 function plusSlides(n) {
@@ -76,6 +77,39 @@ document.querySelector('#previous').onclick = () => {
 document.querySelector('#pause').onclick = () => {
     pauseSlide();
 };//this listens for the pauseSlide button then calls the pauseSlide function
+
+document.querySelector('#italic-time').onclick = () => {
+    if (isTimeItalicPressed === 0){
+        isTimeItalicPressed = 1;
+        currentTime.style.fontStyle = "italic";
+    }
+    else {
+        isTimeItalicPressed = 0;
+        currentTime.style.fontStyle = 'normal';
+    }
+};//Adds and removes Italics from time
+
+document.querySelector('#bold-time').onclick = () => {
+    if (isTimeBoldPressed === 0){
+        isTimeBoldPressed = 1;
+        currentTime.style.fontWeight = 'bold';
+    }
+    else {
+        isTimeBoldPressed = 0;
+        currentTime.style.fontWeight = 'normal';
+    }
+};//Adds and removes Bold from time
+
+document.querySelector('#underline-time').onclick = () => {
+    if (isTimeUnderlinePressed === 0){
+        isTimeUnderlinePressed = 1;
+        currentTime.style.textDecoration = 'underline';
+    }
+    else {
+        isTimeUnderlinePressed = 0;
+        currentTime.style.textDecoration = 'none';
+    }
+}//adds and removes underline from time
 
 selectFontTime.onchange = () => {
     if (selectFontTime.value === 'lobster'){
@@ -138,18 +172,6 @@ selectFontDate.onchange = () => {
         currentDate.style.fontSize = '110px'
     }
 };//this listens for the font-select-date drop down menu and applies the appropriate font
-
-document.querySelector('#time-style').onchange = () => {
-    if (timeStyle.value === 'italic'){
-        currentTime.style.fontStyle = "italic";
-    }
-    else if (timeStyle.value === 'bold'){
-        currentTime.style.fontWeight = 'bold';
-    }
-    else if (timeStyle.value === 'underline'){
-        currentTime.style.textDecoration = 'underline';
-    }
-};//*******************needs to be updated*******************************/
 
 function showSlides(n) {
     let slides = document.getElementsByClassName("mySlides");
