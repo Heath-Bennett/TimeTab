@@ -9,6 +9,9 @@ let isTimeUnderlinePressed = 0;
 let isDateItalicPressed = 0;
 let isDateBoldPressed = 0;
 let isDateUnderlinePressed = 0;
+let isShadowOnDate = 1;
+let isShadowOnTime = 1;
+let isDateOn = 1;
 let t;
 const time = document.getElementById("currTime");
 const date = document.getElementById("currDate");
@@ -19,31 +22,65 @@ const selectFontDate =  document.querySelector('#font-select-date');
 const currentDate = document.querySelector('#currDate');
 
 
-//get the value of speed from the range element
 document.querySelector('#speed').onchange = s =>{
     speedLabel.innerHTML = "Speed: " + s.target.value;
     slideShowSpeed = s.target.value * 1000;
-}
+}; //get the value of speed from the range element
 
-//change the font color of time
 document.querySelector('#color-select-time').onchange = t =>{
     time.style.color = t.target.value;
-};
+}; //change the font color of time
 
-//change the font color of date
 document.querySelector('#color-select-date').onchange = d =>{
     date.style.color = d.target.value;
-};
+}; //change the font color of date
 
-//change the shadow color of time
 document.querySelector('#color-select-tshadow').onchange = ts =>{
     time.style.textShadow = "0 0 3px" + ts.target.value + ", 0 0 5px" + ts.target.value;
-};
+}; //change the shadow color of time
 
-//change the shadow color of date
 document.querySelector('#color-select-dshadow').onchange = ds =>{
     date.style.textShadow = "0 0 3px" + ds.target.value + ", 0 0 5px" + ds.target.value;
-};
+};//change the shadow color of date
+
+document.querySelector('#toggle-time-shadow').onclick = tts =>{
+    if(isShadowOnTime === 1){
+        time.style.textShadow = "none";
+        document.querySelector('#toggle-time-shadow').value="Off";
+        isShadowOnTime = 0;
+    }
+    else{
+        time.style.textShadow = "0 0 3px #ffffff, 0 0 5px #ffffff";
+        isShadowOnTime = 1; 
+        document.querySelector('#toggle-time-shadow').value="On";
+    }
+}; //this toggles the shadow on time
+
+document.querySelector('#toggle-date-shadow').onclick = tds =>{
+    if(isShadowOnDate === 1){
+        date.style.textShadow = "none";
+        document.querySelector('#toggle-date-shadow').value="Off";
+        isShadowOnDate = 0;
+    }
+    else{
+        date.style.textShadow = "0 0 3px #ffffff, 0 0 5px #ffffff";
+        isShadowOnDate = 1; 
+        document.querySelector('#toggle-date-shadow').value="On";
+    }
+}; //this toggles the shadow on date
+
+document.querySelector('#toggle-date').onclick = td =>{
+    if(isDateOn === 1){
+        document.getElementById('currDate').hidden = true;
+        isDateOn = 0;
+        document.querySelector('#toggle-date').value='Off';
+    }
+    else{
+        document.getElementById('currDate').hidden = false;
+        isDateOn = 1
+        document.querySelector('#toggle-date').value = 'On';
+    }
+}; //This toggles the date
 
 showSlides(slideIndex);//this calls the function for the slides
 
@@ -59,7 +96,7 @@ function startSlide () {
 
 function pauseSlide () {
     clearTimeout(t);
-}// this pauses the slideshow
+};// this pauses the slideshow
 
 document.querySelector('#play').onclick = () => {
     slideOn = 0;
@@ -151,7 +188,7 @@ selectFontTime.onchange = () => {
     }
     else if (selectFontTime.value === 'geostarFill'){
         currentTime.style.fontFamily = '"Geostar Fill", cursive';
-        currentTime.style.fontSize = '146px'
+        currentTime.style.fontSize = '180px'
     }
     else if (selectFontTime.value === 'dancingScript'){
         currentTime.style.fontFamily = '"Dancing Script", cursive';

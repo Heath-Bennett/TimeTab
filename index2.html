@@ -50,8 +50,8 @@
                 
                 <div class="row">
                     <div class ='center'>
-                        <p id='currTime'></p>
-                        <p id='currDate'></p>
+                        <p id='currTime'>10:00 AM</p>
+                        <p id='currDate'>November 20, 2022</p>
                     </div>
                 </div>
                 <div class="row">
@@ -73,12 +73,16 @@
                                 </select>
                             </div>
                             <div>
+                                <label for="color-select-time">Time Color:</label>
+                                <input type="color" id="color-select-time">
+                            </div>
+                            <div>
                                 <label for="color-select-tshadow">Time Shadow:</label>
                                 <input type="color" id="color-select-tshadow">
                             </div>
                             <div>
-                                <label for="color-select-time">Time Color:</label>
-                                <input type="color" id="color-select-time">
+                                <label for="toggle-time-shadow">Toggle Time's Shadow:</label>
+                                <input id="toggle-time-shadow" type="button" value="On">
                             </div>
                             <div>
                                 <input id="italic-time" type="button" value="Italic">
@@ -86,6 +90,10 @@
                                 <input id="underline-time" type="button" value="Underline">
                             </div>
                             <h4>Date</h4>
+                            <div>
+                                <label for="toggle-date">Toggle Date:</label>
+                                <input id="toggle-date" type="button" value="On">
+                            </div>
                             <div>
                                 <label for="font-select-date">Font:</label>
                                 <select name="fonts" id="font-select-date">
@@ -106,6 +114,10 @@
                             <div>
                                 <label for="color-select-dshadow">Date Shadow:</label>
                                 <input type="color" id="color-select-dshadow">
+                            </div>
+                            <div>
+                                <label for="toggle-date-shadow">Toggle Date's Shadow:</label>
+                                <input id="toggle-date-shadow" type="button" value="On">
                             </div>
                             <div>
                                 <input id="italic-date" type="button" value="Italic">
