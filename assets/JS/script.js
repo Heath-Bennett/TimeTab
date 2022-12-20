@@ -13,6 +13,8 @@ let isShadowOnDate = 1;
 let isShadowOnTime = 1;
 let isDateOn = 1;
 let t;
+let currentDateTop =-60;
+let currentTimeTop = 0;
 const time = document.getElementById("currTime");
 const date = document.getElementById("currDate");
 const speedLabel = document.getElementById("speedLabel");
@@ -179,7 +181,28 @@ document.querySelector('#underline-date').onclick = () => {
         isDateUnderlinePressed = 0;
         currentDate.style.textDecoration = 'none';
     }
-}//adds and removes underline from time
+};//adds and removes underline from time
+
+document.querySelector('#move-date-up').onclick = () => {
+    currentDateTop -= 4;
+    currentDate.style.top = `${currentDateTop}px`;
+};//moves the date up
+
+document.querySelector('#move-date-down').onclick = () => {
+    currentDateTop += 4;
+    currentDate.style.top = `${currentDateTop}px`;
+};//moves the date down
+
+document.querySelector('#move-time-up').onclick = () => {
+    currentTimeTop -= 4;
+    currentTime.style.top =`${currentTimeTop}px`;
+};//moves the time up
+
+document.querySelector('#move-time-down').onclick = () => {
+    currentTimeTop += 4;
+    currentTime.style.top =`${currentTimeTop}px`;
+};//moves the time down
+
 
 selectFontTime.onchange = () => {
     if (selectFontTime.value === 'lobster'){

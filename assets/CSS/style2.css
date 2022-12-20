@@ -29,10 +29,13 @@ div.center {
 
 #currTime{
     font-size: 234px;
+    position:relative;
     margin-bottom: 0;
     color:#8C031C;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
-    font-family:'Times New Roman', Times, serif
+    font-family:'Times New Roman', Times, serif;
+    top: 0px;
+
 }
 
 #currDate {
@@ -43,7 +46,7 @@ div.center {
     left:14px;
     color:#8C031C;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
-    font-family:'Times New Roman', Times, serif
+    font-family:'Times New Roman', Times, serif;
 }
 
 #controls {
