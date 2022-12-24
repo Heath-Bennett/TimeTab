@@ -28,22 +28,27 @@ div.center {
 
 
 #currTime{
-    font-size: 234px;
+    font-size: 350px;
+    border-color:yellow;
+    border-style:solid;
+    width:1920px;
     position:relative;
     margin-bottom: 0;
     color:#8C031C;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
     font-family:'Times New Roman', Times, serif;
-    top: 0px;
+    top: -30px;
 
 }
 
 #currDate {
-    font-Size: 120px;
+    font-Size: 160px;
+    width:1920px;
     margin-top: 0;
     position: relative;
-    top:-60px;
-    left:14px;
+    border-color:pink;
+    border-style:solid;
+    top:-130px;
     color:#8C031C;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
     font-family:'Times New Roman', Times, serif;
