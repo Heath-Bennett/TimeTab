@@ -313,13 +313,8 @@ $(document).ready(function(){
     };
     //start clock on load
     GetClock();
-    setInterval(GetClock, 1000)
-    console.log('made it here 12/26')
+    setInterval(GetClock, 1000);
 });
-/*window.onload=function(){
-    GetClock();
-    setInterval(GetClock, 1000)
-    console.log('made it here 12/26')
-};*/
+
 
 
