@@ -210,7 +210,7 @@ $(document).ready(function(){
     saveSettings.addEventListener("change", () => {
         if (saveSettings.checked) {
             localStorage.setItem("timeFont", selectFontTime.value);
-            localStorage.setItem("timecolor", document.querySelector('#color-select-time').value);
+            localStorage.setItem("timeColor", document.querySelector('#color-select-time').value);
             console.log('checkbox is checked');
         }
         else {
