@@ -213,14 +213,25 @@ $(document).ready(function(){
             localStorage.setItem("timeColor", document.querySelector('#color-select-time').value);
             localStorage.setItem("timeShadow", document.querySelector('#color-select-tshadow').value);
             localStorage.setItem("timeItalic", isTimeItalicPressed);
+            localStorage.setItem('timeBold', isTimeBoldPressed);
+            localStorage.setItem('timeUnderline', isTimeUnderlinePressed);
+            localStorage.setItem('timePosition', currentTimeTop);
+            localStorage.setItem('dateOn', isDateOn);
+            localStorage.setItem('dateFont', selectFontDate.value);
+            localStorage.setItem('dateShadow', document.querySelector('#color-select-dshadow').value);
+            localStorage.setItem('dateColor', document.querySelector('#color-select-date').value);
+            localStorage.setItem('dateItalic', isDateItalicPressed);
+            localStorage.setItem('dateBold', isDateBoldPressed);
+            localStorage.setItem('dateUnderline', isDateUnderlinePressed);
+            localStorage.setItem('datePosition', currentDateTop);
             console.log('checkbox is checked');
-            console.log(document.querySelector('#color-select-tshadow').value)
+            console.log(isDateOn);
             
         }
         else {
             console.log('checkbox is unchecked');
         }
-    }); //if checkbox is checked it saves settings to local storage
+    }); //if checkbox is checked it saves settings to local storage.  If it is unchecked it saves initial settings to storage
 
 
     selectFontTime.onchange = () => {
