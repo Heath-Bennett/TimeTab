@@ -211,7 +211,11 @@ $(document).ready(function(){
         if (saveSettings.checked) {
             localStorage.setItem("timeFont", selectFontTime.value);
             localStorage.setItem("timeColor", document.querySelector('#color-select-time').value);
+            localStorage.setItem("timeShadow", document.querySelector('#color-select-tshadow').value);
+            localStorage.setItem("timeItalic", isTimeItalicPressed);
             console.log('checkbox is checked');
+            console.log(document.querySelector('#color-select-tshadow').value)
+            
         }
         else {
             console.log('checkbox is unchecked');
