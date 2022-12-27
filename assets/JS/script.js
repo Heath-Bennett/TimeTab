@@ -24,7 +24,8 @@ $(document).ready(function(){
     const currentTime = document.querySelector('#currTime');
     const selectFontDate =  document.querySelector('#font-select-date');
     const currentDate = document.querySelector('#currDate');
-
+    const saveSettings = document.querySelector('#save-settings');
+    
 
     document.querySelector('#speed').onchange = s =>{
         speedLabel.innerHTML = "Speed: " + s.target.value;
@@ -205,6 +206,18 @@ $(document).ready(function(){
         currentTime.style.top =`${currentTimeTop}px`;
     };//moves the time down
 
+    
+    saveSettings.addEventListener("change", () => {
+        if (saveSettings.checked) {
+            localStorage.setItem("timeFont", selectFontTime.value);
+            localStorage.setItem("timecolor", document.querySelector('#color-select-time').value);
+            console.log('checkbox is checked');
+        }
+        else {
+            console.log('checkbox is unchecked');
+        }
+    }); //if checkbox is checked it saves settings to local storage
+
 
     selectFontTime.onchange = () => {
         if (selectFontTime.value === 'lobster'){
@@ -266,7 +279,7 @@ $(document).ready(function(){
             currentDate.style.fontFamily = '"Xanh Mono", monospace';
             //currentDate.style.fontSize = '110px'
         }
-    };//this listens for the font-select-date drop down menu and applies the appropriate font
+    };//this listens for the font-select-date drop down menu and applies the appropriate font4
 
     function showSlides(n) {
         let slides = document.getElementsByClassName("mySlides");
