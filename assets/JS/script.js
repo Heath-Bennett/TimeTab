@@ -5,6 +5,7 @@ $(document).ready(function(){
     const allMonths = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
     let slideShowSpeed = 15000;
     let slideIndex = 1;
+    let isChecked = 0;
     let isTimeItalicPressed = 0;
     let isTimeBoldPressed = 0;
     let isTimeUnderlinePressed = 0;
@@ -14,6 +15,7 @@ $(document).ready(function(){
     let isShadowOnDate = 1;
     let isShadowOnTime = 1;
     let isDateOn = 1;
+    let slideOn = 0;
     let t;
     let currentDateTop =-130;
     let currentTimeTop = -30;
@@ -104,7 +106,7 @@ $(document).ready(function(){
     };// this pauses the slideshow
 
     document.querySelector('#play').onclick = () => {
-        slideOn = 0;
+        slideOn = 1;
         startSlide();
     };//this listens for the play button to be clicked then calls the startSlide function
 
@@ -117,6 +119,7 @@ $(document).ready(function(){
     };//this listens for the previous button then calls the plusSlides function
 
     document.querySelector('#pause').onclick = () => {
+        slideOn = 0;
         pauseSlide();
     };//this listens for the pauseSlide button then calls the pauseSlide function
 
@@ -163,7 +166,7 @@ $(document).ready(function(){
             currentDate.style.fontStyle = 'normal';
         }
     };//Adds and removes Italics from date
-
+    
     document.querySelector('#bold-date').onclick = () => {
         if (isDateBoldPressed === 0){
             isDateBoldPressed = 1;
@@ -185,12 +188,12 @@ $(document).ready(function(){
             currentDate.style.textDecoration = 'none';
         }
     };//adds and removes underline from time
-
+    
     document.querySelector('#move-date-up').onclick = () => {
         currentDateTop -= 4;
         currentDate.style.top = `${currentDateTop}px`;
     };//moves the date up
-
+    
     document.querySelector('#move-date-down').onclick = () => {
         currentDateTop += 4;
         currentDate.style.top = `${currentDateTop}px`;
@@ -200,35 +203,89 @@ $(document).ready(function(){
         currentTimeTop -= 4;
         currentTime.style.top =`${currentTimeTop}px`;
     };//moves the time up
-
+    
     document.querySelector('#move-time-down').onclick = () => {
         currentTimeTop += 4;
         currentTime.style.top =`${currentTimeTop}px`;
     };//moves the time down
+    
+    let storeIt = function(){
+        localStorage.setItem("timeFont", selectFontTime.value);
+        localStorage.setItem("timeColor", document.querySelector('#color-select-time').value);
+        localStorage.setItem("timeShadow", document.querySelector('#color-select-tshadow').value);
+        localStorage.setItem("timeItalic", isTimeItalicPressed);
+        localStorage.setItem('timeBold', isTimeBoldPressed);
+        localStorage.setItem('timeUnderline', isTimeUnderlinePressed);
+        localStorage.setItem('timePosition', currentTimeTop);
+        localStorage.setItem('dateOn', isDateOn);
+        localStorage.setItem('dateFont', selectFontDate.value);
+        localStorage.setItem('dateShadow', document.querySelector('#color-select-dshadow').value);
+        localStorage.setItem('dateColor', document.querySelector('#color-select-date').value);
+        localStorage.setItem('dateItalic', isDateItalicPressed);
+        localStorage.setItem('dateBold', isDateBoldPressed);
+        localStorage.setItem('dateUnderline', isDateUnderlinePressed);
+        localStorage.setItem('datePosition', currentDateTop);
+        localStorage.setItem('timeShadowToggle', isShadowOnTime);
+        localStorage.setItem('dateShadowToggle', isShadowOnDate);
+        localStorage.setItem('theme', document.querySelector('#theme-select').value);
+        localStorage.setItem('slideshowOn', slideOn);
+        localStorage.setItem('slideSpeed', document.querySelector('#speed').value);
+        localStorage.setItem('settingsChecked', isChecked);
+    };
 
+    let retrieveIt = function(){
+        let getTimeFont = localStorage.getItem('timeFont');
+        let getTimeColor = localStorage.getItem('timeColor');
+        let getTimeShadow = localStorage.getItem('timeShadow');
+        let getTimeItalic = localStorage.getItem('timeItalic');
+        let getTimeBold = localStorage.getItem('timeBold');
+        let getTimeUnderline = localStorage.getItem('timeUnderline');
+        let getTimePosition = localStorage.getItem('timePosition');
+        let getDateOn = localStorage.getItem('dateOn');
+        let getDateFont = localStorage.getItem('dateFont');
+        let getDateShadow = localStorage.getItem('dateShadow');
+        let getDateColor = localStorage.getItem('dateColor');
+        let getDateItalic = localStorage.getItem('dateItalic');
+        let getDateBold = localStorage.getItem('dateBold');
+        let gatDateUnderline = localStorage.getItem('dateUnderline');
+        let getDatePosition = localStorage.getItem('datePosition');
+        let getTimeShadowToggle = localStorage.getItem('timeShadowToggle');
+        let getDateShadowToggle = localStorage.getItem('dateShadowToggle');
+        let getTheme = localStorage.getItem('theme');
+        let getSlideShowOn = localStorage.getItem('slideShowOn');
+        let getSlideSpeed = localStorage.getItem('slideSpeed');
+        let getSettingsChecked = localStorage.getItem('settingsChecked');
+        
+        if (getSettingsChecked !== null){
+            console.log(getSettingsChecked);
+            if (getSettingsChecked === 1){
+                console.log('made it to get settings checked');
+            };
+             
+        };
+        if (getTimeFont !== null){
+            currentTime.style.fontFamily = getTimeFont;
+        };
+        if (getTimeColor !== null){
+            time.style.color = getTimeColor;
+        };
+        if (getTimeShadow !== null){
+            time.style.textShadow = `0 0 3px ${getTimeShadow}, 0 0 5px ${getTimeShadow}`;
+        }; 
+    };
     
     saveSettings.addEventListener("change", () => {
         if (saveSettings.checked) {
-            localStorage.setItem("timeFont", selectFontTime.value);
-            localStorage.setItem("timeColor", document.querySelector('#color-select-time').value);
-            localStorage.setItem("timeShadow", document.querySelector('#color-select-tshadow').value);
-            localStorage.setItem("timeItalic", isTimeItalicPressed);
-            localStorage.setItem('timeBold', isTimeBoldPressed);
-            localStorage.setItem('timeUnderline', isTimeUnderlinePressed);
-            localStorage.setItem('timePosition', currentTimeTop);
-            localStorage.setItem('dateOn', isDateOn);
-            localStorage.setItem('dateFont', selectFontDate.value);
-            localStorage.setItem('dateShadow', document.querySelector('#color-select-dshadow').value);
-            localStorage.setItem('dateColor', document.querySelector('#color-select-date').value);
-            localStorage.setItem('dateItalic', isDateItalicPressed);
-            localStorage.setItem('dateBold', isDateBoldPressed);
-            localStorage.setItem('dateUnderline', isDateUnderlinePressed);
-            localStorage.setItem('datePosition', currentDateTop);
+            isChecked = 1;
+            storeIt();
             console.log('checkbox is checked');
-            console.log(isDateOn);
+            console.log(document.querySelector('#speed').value);
+            
             
         }
         else {
+            isChecked = 0;
+            localStorage.clear();
             console.log('checkbox is unchecked');
         }
     }); //if checkbox is checked it saves settings to local storage.  If it is unchecked it saves initial settings to storage
@@ -339,9 +396,15 @@ $(document).ready(function(){
         document.getElementById('currTime').innerHTML = `${newHour}:${newMin}${meridiem}`;
         document.getElementById('currDate').innerHTML = `${allMonths[newMonth]} ${newDate}, ${newYear}`;
     };
+
     //start clock on load
-    GetClock();
-    setInterval(GetClock, 1000);
+    let init = function() {
+        retrieveIt();
+        GetClock();
+        setInterval(GetClock, 1000);
+    };
+
+    init();
 });
 
 
