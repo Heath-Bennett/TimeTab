@@ -230,7 +230,7 @@ $(document).ready(function(){
         localStorage.setItem('theme', document.querySelector('#theme-select').value);
         localStorage.setItem('slideshowOn', slideOn);
         localStorage.setItem('slideSpeed', document.querySelector('#speed').value);
-        localStorage.setItem('settingsChecked', isChecked);
+        //localStorage.setItem('settingsChecked', isChecked);
     };
 
     let retrieveIt = function(){
@@ -254,15 +254,8 @@ $(document).ready(function(){
         let getTheme = localStorage.getItem('theme');
         let getSlideShowOn = localStorage.getItem('slideShowOn');
         let getSlideSpeed = localStorage.getItem('slideSpeed');
-        let getSettingsChecked = localStorage.getItem('settingsChecked');
+        //let getSettingsChecked = localStorage.getItem('settingsChecked');
         
-        if (getSettingsChecked !== null){
-            console.log(getSettingsChecked);
-            if (getSettingsChecked === 1){
-                console.log('made it to get settings checked');
-            };
-             
-        };
         if (getTimeFont !== null){
             currentTime.style.fontFamily = getTimeFont;
         };
@@ -271,24 +264,19 @@ $(document).ready(function(){
         };
         if (getTimeShadow !== null){
             time.style.textShadow = `0 0 3px ${getTimeShadow}, 0 0 5px ${getTimeShadow}`;
-        }; 
+        };
+        
+        if (getTimeItalic !== null){
+            
+        }
     };
+
+    document.querySelector('#save-settings').onclick = () => {
+        storeIt();
+        document.querySelector('#label-save-settings').innerHTML = "You currently have saved settings."
+    }; //when button is clicked settings are saved to local storage
     
-    saveSettings.addEventListener("change", () => {
-        if (saveSettings.checked) {
-            isChecked = 1;
-            storeIt();
-            console.log('checkbox is checked');
-            console.log(document.querySelector('#speed').value);
-            
-            
-        }
-        else {
-            isChecked = 0;
-            localStorage.clear();
-            console.log('checkbox is unchecked');
-        }
-    }); //if checkbox is checked it saves settings to local storage.  If it is unchecked it saves initial settings to storage
+    
 
 
     selectFontTime.onchange = () => {
