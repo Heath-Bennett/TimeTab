@@ -210,9 +210,11 @@ $(document).ready(function(){
     };//moves the time down
     
     let storeIt = function(){
+        let myString = document.querySelector('#currTime').style.textShadow;
+        let charIndex = myString.indexOf(')');
         localStorage.setItem("timeFont", selectFontTime.value);
         localStorage.setItem("timeColor", document.querySelector('#currTime').style.color);
-        localStorage.setItem("timeShadow", document.querySelector('#color-select-tshadow').value);
+        localStorage.setItem("timeShadow", myString.slice(0, charIndex + 1));
         localStorage.setItem("timeItalic", isTimeItalicPressed);
         localStorage.setItem('timeBold', isTimeBoldPressed);
         localStorage.setItem('timeUnderline', isTimeUnderlinePressed);
@@ -230,6 +232,7 @@ $(document).ready(function(){
         localStorage.setItem('theme', document.querySelector('#theme-select').value);
         localStorage.setItem('slideshowOn', slideOn);
         localStorage.setItem('slideSpeed', document.querySelector('#speed').value);
+        
         //localStorage.setItem('settingsChecked', isChecked);
     };
 
@@ -254,7 +257,7 @@ $(document).ready(function(){
         let getTheme = localStorage.getItem('theme');
         let getSlideShowOn = localStorage.getItem('slideShowOn');
         let getSlideSpeed = localStorage.getItem('slideSpeed');
-        //let getSettingsChecked = localStorage.getItem('settingsChecked');
+        
         
         if (getTimeFont !== null){
             currentTime.style.fontFamily = getTimeFont;
@@ -266,13 +269,12 @@ $(document).ready(function(){
             time.style.textShadow = `0 0 3px ${getTimeShadow}, 0 0 5px ${getTimeShadow}`;
         };
         
-        if (getTimeItalic !== null){
-            
-        }
+        if (getTimeItalic !== null && parseInt(getTimeItalic) === 1){
+            currentTime.style.fontStyle = "italic";
+        };
     };
 
     document.querySelector('#save-settings').onclick = () => {
-        console.log(document.querySelector('#currTime').style.color);
         storeIt();
         //document.querySelector('#label-save-settings').innerHTML = "You currently have saved settings."
     }; //when button is clicked settings are saved to local storage
