@@ -211,7 +211,7 @@ $(document).ready(function(){
     
     let storeIt = function(){
         localStorage.setItem("timeFont", selectFontTime.value);
-        localStorage.setItem("timeColor", document.querySelector('#color-select-time').value);
+        localStorage.setItem("timeColor", document.querySelector('#currTime').style.color);
         localStorage.setItem("timeShadow", document.querySelector('#color-select-tshadow').value);
         localStorage.setItem("timeItalic", isTimeItalicPressed);
         localStorage.setItem('timeBold', isTimeBoldPressed);
@@ -272,8 +272,9 @@ $(document).ready(function(){
     };
 
     document.querySelector('#save-settings').onclick = () => {
+        console.log(document.querySelector('#currTime').style.color);
         storeIt();
-        document.querySelector('#label-save-settings').innerHTML = "You currently have saved settings."
+        //document.querySelector('#label-save-settings').innerHTML = "You currently have saved settings."
     }; //when button is clicked settings are saved to local storage
     
     
