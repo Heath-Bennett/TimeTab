@@ -258,7 +258,6 @@ $(document).ready(function(){
         let getSlideShowOn = localStorage.getItem('slideShowOn');
         let getSlideSpeed = localStorage.getItem('slideSpeed');
         
-        
         if (getTimeFont !== null){
             currentTime.style.fontFamily = getTimeFont;
         };
@@ -271,7 +270,19 @@ $(document).ready(function(){
         
         if (getTimeItalic !== null && parseInt(getTimeItalic) === 1){
             currentTime.style.fontStyle = "italic";
+            isTimeItalicPressed = 1;
         };
+
+        if (getTimeBold !== null && parseInt(getTimeBold) === 1){
+            currentTime.style.fontWeight = "bold";
+            isTimeBoldPressed = 1;
+        };
+
+        if (getTimeUnderline !== null && parseInt(getTimeUnderline) === 1){
+            currentTime.style.textDecoration = "underline";
+            isTimeUnderlinePressed = 1;
+        };
+
     };
 
     document.querySelector('#save-settings').onclick = () => {
