@@ -210,19 +210,21 @@ $(document).ready(function(){
     };//moves the time down
     
     let storeIt = function(){
-        let myString = document.querySelector('#currTime').style.textShadow;
-        let charIndex = myString.indexOf(')');
-        localStorage.setItem("timeFont", selectFontTime.value);
-        localStorage.setItem("timeColor", document.querySelector('#currTime').style.color);
-        localStorage.setItem("timeShadow", myString.slice(0, charIndex + 1));
+        let timeString = currentTime.style.textShadow;
+        let dateString = currentDate.style.textShadow;
+        let charIndexDate = dateString.indexOf(')');
+        let charIndexTime = timeString.indexOf(')');
+        localStorage.setItem("timeFont", currentTime.style.fontFamily);
+        localStorage.setItem("timeColor", currentTime.style.color);
+        localStorage.setItem("timeShadow", timeString.slice(0, charIndexTime + 1));
         localStorage.setItem("timeItalic", isTimeItalicPressed);
         localStorage.setItem('timeBold', isTimeBoldPressed);
         localStorage.setItem('timeUnderline', isTimeUnderlinePressed);
         localStorage.setItem('timePosition', currentTimeTop);
         localStorage.setItem('dateOn', isDateOn);
-        localStorage.setItem('dateFont', selectFontDate.value);
-        localStorage.setItem('dateShadow', document.querySelector('#color-select-dshadow').value);
-        localStorage.setItem('dateColor', document.querySelector('#color-select-date').value);
+        localStorage.setItem('dateFont', currentDate.style.fontFamily);
+        localStorage.setItem('dateShadow', dateString.slice(0, charIndexDate + 1));
+        localStorage.setItem('dateColor', currentDate.style.color);
         localStorage.setItem('dateItalic', isDateItalicPressed);
         localStorage.setItem('dateBold', isDateBoldPressed);
         localStorage.setItem('dateUnderline', isDateUnderlinePressed);
@@ -250,7 +252,7 @@ $(document).ready(function(){
         let getDateColor = localStorage.getItem('dateColor');
         let getDateItalic = localStorage.getItem('dateItalic');
         let getDateBold = localStorage.getItem('dateBold');
-        let gatDateUnderline = localStorage.getItem('dateUnderline');
+        let getDateUnderline = localStorage.getItem('dateUnderline');
         let getDatePosition = localStorage.getItem('datePosition');
         let getTimeShadowToggle = localStorage.getItem('timeShadowToggle');
         let getDateShadowToggle = localStorage.getItem('dateShadowToggle');
@@ -282,7 +284,44 @@ $(document).ready(function(){
             currentTime.style.textDecoration = "underline";
             isTimeUnderlinePressed = 1;
         };
+        
+        if (getTimePosition !== null){
+            currentTime.style.top = `${parseInt(getTimePosition)}px`;
+            currentTimeTop = parseInt(getTimePosition);
+        };
 
+        if (getDateOn !== null && parseInt(getDateOn) === 0){
+            document.getElementById('currDate').hidden = true;
+            isDateOn = 0;
+            document.querySelector('#toggle-date').value ='Off';
+        };
+
+        if (getDateFont !== null){
+            currentDate.style.fontFamily = getDateFont;
+        };
+
+        if (getDateShadow !== null){
+            date.style.textShadow = `0 0 3px ${getDateShadow}, 0 0 5px ${getDateShadow}`;
+        };
+
+        if (getDateColor !== null){
+            date.style.color = getDateColor;
+        };
+
+        if (getDateItalic !== null && parseInt(getTimeItalic) === 1){
+            currentDate.style.fontStyle = 'italic';
+            isDateItalicPressed = 1;
+        };
+
+        if (getDateBold !== null && parseInt(getDateBold) === 1){
+            currentDate.style.fontWeight = "bold";
+            isDateBoldPressed = 1;
+        };
+
+        if (getDateUnderline !== 1 && parseInt(getDateUnderline) === 1){
+            currentDate.style.textDecoration = 'underline';
+            isDateUnderlinePressed = 1;
+        };
     };
 
     document.querySelector('#save-settings').onclick = () => {
