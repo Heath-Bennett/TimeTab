@@ -308,7 +308,7 @@ $(document).ready(function(){
             date.style.color = getDateColor;
         };
 
-        if (getDateItalic !== null && parseInt(getTimeItalic) === 1){
+        if (getDateItalic !== null && parseInt(getDateItalic) === 1){
             currentDate.style.fontStyle = 'italic';
             isDateItalicPressed = 1;
         };
@@ -321,6 +321,11 @@ $(document).ready(function(){
         if (getDateUnderline !== 1 && parseInt(getDateUnderline) === 1){
             currentDate.style.textDecoration = 'underline';
             isDateUnderlinePressed = 1;
+        };
+
+        if (getDatePosition !== null){
+            currentDate.style.top = `${parseInt(getDatePosition)}px`;
+            currentDateTop = parseInt(getDatePosition);
         };
     };
 
