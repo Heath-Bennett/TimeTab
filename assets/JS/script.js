@@ -234,7 +234,6 @@ $(document).ready(function(){
         localStorage.setItem('theme', document.querySelector('#theme-select').value);
         localStorage.setItem('slideshowOn', slideOn);
         localStorage.setItem('slideSpeed', document.querySelector('#speed').value);
-        
         //localStorage.setItem('settingsChecked', isChecked);
     };
 
@@ -257,7 +256,7 @@ $(document).ready(function(){
         let getTimeShadowToggle = localStorage.getItem('timeShadowToggle');
         let getDateShadowToggle = localStorage.getItem('dateShadowToggle');
         let getTheme = localStorage.getItem('theme');
-        let getSlideShowOn = localStorage.getItem('slideShowOn');
+        let getSlideshowOn = localStorage.getItem('slideshowOn');
         let getSlideSpeed = localStorage.getItem('slideSpeed');
         
         if (getTimeFont !== null){
@@ -338,6 +337,17 @@ $(document).ready(function(){
             time.style.textShadow = "none";
             document.querySelector('#toggle-time-shadow').value="Off";
             isShadowOnTime = 0;
+        }; 
+
+        if (getSlideshowOn !== null && parseInt(getSlideshowOn) === 1){
+            slideOn = 1;
+            startSlide();
+        };
+
+        if (getSlideSpeed !== null){
+            slideShowSpeed = parseInt(getSlideSpeed * 1000);
+            speedLabel.innerHTML = `Speed: ${getSlideSpeed}`;
+            startSlide();
         };
     };
 
