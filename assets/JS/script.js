@@ -78,12 +78,12 @@ $(document).ready(function(){
 
     document.querySelector('#toggle-date').onclick = td =>{
         if(isDateOn === 1){
-            document.getElementById('currDate').hidden = true;
+            currentDate.hidden = true;
             isDateOn = 0;
             document.querySelector('#toggle-date').value='Off';
         }
         else{
-            document.getElementById('currDate').hidden = false;
+           currentDate.hidden = false;
             isDateOn = 1
             document.querySelector('#toggle-date').value = 'On';
         }
@@ -326,6 +326,18 @@ $(document).ready(function(){
         if (getDatePosition !== null){
             currentDate.style.top = `${parseInt(getDatePosition)}px`;
             currentDateTop = parseInt(getDatePosition);
+        };
+
+        if (getDateShadowToggle !== null && parseInt(getDateShadowToggle) === 0){
+            date.style.textShadow = "none";
+            document.querySelector('#toggle-date-shadow').value="Off";
+            isShadowOnDate = 0;
+        };
+
+        if (getTimeShadowToggle !== null && parseInt(getTimeShadowToggle) === 0){
+            time.style.textShadow = "none";
+            document.querySelector('#toggle-time-shadow').value="Off";
+            isShadowOnTime = 0;
         };
     };
 
