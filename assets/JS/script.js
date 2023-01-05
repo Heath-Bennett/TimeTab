@@ -339,16 +339,16 @@ $(document).ready(function(){
             isShadowOnTime = 0;
         }; 
 
+        if (getSlideSpeed !== null){
+            slideShowSpeed = parseInt(getSlideSpeed * 1000);
+            speedLabel.innerHTML = `Speed: ${getSlideSpeed}`;
+        };
+        
         if (getSlideshowOn !== null && parseInt(getSlideshowOn) === 1){
             slideOn = 1;
             startSlide();
         };
 
-        if (getSlideSpeed !== null){
-            slideShowSpeed = parseInt(getSlideSpeed * 1000);
-            speedLabel.innerHTML = `Speed: ${getSlideSpeed}`;
-            startSlide();
-        };
     };
 
     document.querySelector('#save-settings').onclick = () => {
