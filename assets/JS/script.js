@@ -27,6 +27,13 @@ $(document).ready(function(){
     const selectFontDate =  document.querySelector('#font-select-date');
     const currentDate = document.querySelector('#currDate');
     const saveSettings = document.querySelector('#save-settings');
+    const themeSelect = document.querySelector('#theme-select');
+    const picOne = document.querySelector('#picOne');
+    const picTwo = document.querySelector('#picTwo');
+    const picThree = document.querySelector('#picThree');
+    const picFour = document.querySelector('#picFour');
+    const picFive = document.querySelector('#picFive');
+    const picSix = document.querySelector('#picSix');
     
 
     document.querySelector('#speed').onchange = s =>{
@@ -208,7 +215,26 @@ $(document).ready(function(){
         currentTimeTop += 4;
         currentTime.style.top =`${currentTimeTop}px`;
     };//moves the time down
-    
+
+    themeSelect.onchange = () => {
+        if (themeSelect.value === "animals"){
+            picOne.src = "./assets/Images/animal/Gorilla.jpg";
+            picTwo.src = "./assets/Images/animal/pandaBear.jpg";
+            picThree.src = "./assets/Images/animal/polarBear.jpg";
+            picFour.src = "./assets/Images/animal/redPanda.jpg";
+            picFive.src = "./assets/Images/animal/tiger.jpg";
+            picSix.src = "./assets/Images/animal/wolf.jpg";
+        }
+        else if (themeSelect.value === 'aurora'){
+            picOne.src = "./assets/Images/auroraB/auroraLake.jpg";
+            picTwo.src = "./assets/Images/auroraB/purpleAurora.jpg";
+            picThree.src = "./assets/Images/auroraB/redAurora.jpg";
+            picFour.src = "./assets/Images/auroraB/redGreenLakeAurora.jpg";
+            picFive.src = "./assets/Images/auroraB/snowAurora.jpg";
+            picSix.src = "./assets/Images/auroraB/starryAurora.jpg";
+        }
+    };    
+
     let storeIt = function(){
         let timeString = currentTime.style.textShadow;
         let dateString = currentDate.style.textShadow;
@@ -349,7 +375,7 @@ $(document).ready(function(){
             startSlide();
         };
 
-    };
+    }; //retrieves settings from localStorage
 
     document.querySelector('#save-settings').onclick = () => {
         storeIt();
