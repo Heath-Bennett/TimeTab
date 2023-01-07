@@ -233,6 +233,54 @@ $(document).ready(function(){
             picFive.src = "./assets/Images/auroraB/snowAurora.jpg";
             picSix.src = "./assets/Images/auroraB/starryAurora.jpg";
         }
+        else if (themeSelect.value === 'castle'){
+            picOne.src = "./assets/Images/castle/castleLights.jpg";
+            picTwo.src = "./assets/Images/castle/castleMountain.jpg";
+            picThree.src = "./assets/Images/castle/castleRuins.jpg";
+            picFour.src = "./assets/Images/castle/SloveniaCastle.jpg";
+            picFive.src = "./assets/Images/castle/snowCastle.jpg";
+            picSix.src = "./assets/Images/castle/whiteTreeCastle.jpg";
+        }
+        else if (themeSelect.value === 'city'){
+            picOne.src = "./assets/Images/city/boston.jpg";
+            picTwo.src = "./assets/Images/city/manchester.jpg";
+            picThree.src = "./assets/Images/city/nashville.jpeg";
+            picFour.src = "./assets/Images/city/newYork.jpg";
+            picFive.src = "./assets/Images/city/seattle.jpg";
+            picSix.src = "./assets/Images/city/washington.jpg";
+        }
+        else if (themeSelect.value === 'graffiti'){
+            picOne.src = "./assets/Images/graffiti/bonesGraffiti.jpg";
+            picTwo.src = "./assets/Images/graffiti/nomNom.png";
+            picThree.src = "./assets/Images/graffiti/robotWoman.jpg";
+            picFour.src = "./assets/Images/graffiti/seaMonster.jpg";
+            picFive.src = "./assets/Images/graffiti/warehouse.png";
+            picSix.src = "./assets/Images/graffiti/womanBike.jpg";
+        }
+        else if (themeSelect.value === 'lighthouse'){
+            picOne.src = "./assets/Images/lighthouse/calmLighthouse.jpg";
+            picTwo.src = "./assets/Images/lighthouse/capeElizabethLighthouse.png";
+            picThree.src = "./assets/Images/lighthouse/christmasLighthouse.jpg";
+            picFour.src = "./assets/Images/lighthouse/crumblingLighthouse.jpg";
+            picFive.src = "./assets/Images/lighthouse/nubbleLighthouse.jpg";
+            picSix.src = "./assets/Images/lighthouse/sunsetLighthouse.jpg";
+        }
+        else if (themeSelect.value === 'nature'){
+            picOne.src = "./assets/Images/nature/bridge.jpg";
+            picTwo.src = "./assets/Images/nature/cherryNightRiver.jpg";
+            picThree.src = "./assets/Images/nature/mountainLake.jpg";
+            picFour.src = "./assets/Images/nature/sunRayTrail.jpg";
+            picFive.src = "./assets/Images/nature/waterfall.jpg";
+            picSix.src = "./assets/Images/nature/winterNight.jpg";
+        }
+        else if (themeSelect.value === 'nebula'){
+            picOne.src = "./assets/Images/nebula/blueEyeNebula.jpg";
+            picTwo.src = "./assets/Images/nebula/butterflyNebula.jpg";
+            picThree.src = "./assets/Images/nebula/eyeNebula.jpg";
+            picFour.src = "./assets/Images/nebula/guitarPickNebula.jpg";
+            picFive.src = "./assets/Images/nebula/manNebula.jpg";
+            picSix.src = "./assets/Images/nebula/tyeDyeNebula.jpg";
+        };
     };    
 
     let storeIt = function(){
