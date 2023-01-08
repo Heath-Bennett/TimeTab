@@ -19,6 +19,7 @@ $(document).ready(function(){
     let t;
     let currentDateTop =-130;
     let currentTimeTop = -30;
+    let currentTheme = '';
     const time = document.getElementById("currTime");
     const date = document.getElementById("currDate");
     const speedLabel = document.getElementById("speedLabel");
@@ -90,7 +91,7 @@ $(document).ready(function(){
             document.querySelector('#toggle-date').value='Off';
         }
         else{
-           currentDate.hidden = false;
+            currentDate.hidden = false;
             isDateOn = 1
             document.querySelector('#toggle-date').value = 'On';
         }
@@ -216,71 +217,83 @@ $(document).ready(function(){
         currentTime.style.top =`${currentTimeTop}px`;
     };//moves the time down
 
-    themeSelect.onchange = () => {
-        if (themeSelect.value === "animals"){
+    let changeTheme = function(theme){
+
+        if (theme === "animals"){
             picOne.src = "./assets/Images/animal/Gorilla.jpg";
             picTwo.src = "./assets/Images/animal/pandaBear.jpg";
             picThree.src = "./assets/Images/animal/polarBear.jpg";
             picFour.src = "./assets/Images/animal/redPanda.jpg";
             picFive.src = "./assets/Images/animal/tiger.jpg";
             picSix.src = "./assets/Images/animal/wolf.jpg";
+            currentTheme = 'animals';
         }
-        else if (themeSelect.value === 'aurora'){
+        else if (theme === 'aurora'){
             picOne.src = "./assets/Images/auroraB/auroraLake.jpg";
             picTwo.src = "./assets/Images/auroraB/purpleAurora.jpg";
             picThree.src = "./assets/Images/auroraB/redAurora.jpg";
             picFour.src = "./assets/Images/auroraB/redGreenLakeAurora.jpg";
             picFive.src = "./assets/Images/auroraB/snowAurora.jpg";
             picSix.src = "./assets/Images/auroraB/starryAurora.jpg";
+            currentTheme = 'aurora';
         }
-        else if (themeSelect.value === 'castle'){
+        else if (theme === 'castle'){
             picOne.src = "./assets/Images/castle/castleLights.jpg";
             picTwo.src = "./assets/Images/castle/castleMountain.jpg";
             picThree.src = "./assets/Images/castle/castleRuins.jpg";
             picFour.src = "./assets/Images/castle/SloveniaCastle.jpg";
             picFive.src = "./assets/Images/castle/snowCastle.jpg";
             picSix.src = "./assets/Images/castle/whiteTreeCastle.jpg";
+            currentTheme = 'castle';
         }
-        else if (themeSelect.value === 'city'){
+        else if (theme === 'city'){
             picOne.src = "./assets/Images/city/boston.jpg";
             picTwo.src = "./assets/Images/city/manchester.jpg";
             picThree.src = "./assets/Images/city/nashville.jpeg";
             picFour.src = "./assets/Images/city/newYork.jpg";
             picFive.src = "./assets/Images/city/seattle.jpg";
             picSix.src = "./assets/Images/city/washington.jpg";
+            currentTheme = 'city';
         }
-        else if (themeSelect.value === 'graffiti'){
+        else if (theme === 'graffiti'){
             picOne.src = "./assets/Images/graffiti/bonesGraffiti.jpg";
             picTwo.src = "./assets/Images/graffiti/nomNom.png";
             picThree.src = "./assets/Images/graffiti/robotWoman.jpg";
             picFour.src = "./assets/Images/graffiti/seaMonster.jpg";
             picFive.src = "./assets/Images/graffiti/warehouse.png";
-            picSix.src = "./assets/Images/graffiti/womanBike.jpg";
+            currentTheme = 'graffiti';
         }
-        else if (themeSelect.value === 'lighthouse'){
+        else if (theme === 'lighthouse'){
             picOne.src = "./assets/Images/lighthouse/calmLighthouse.jpg";
             picTwo.src = "./assets/Images/lighthouse/capeElizabethLighthouse.png";
             picThree.src = "./assets/Images/lighthouse/christmasLighthouse.jpg";
             picFour.src = "./assets/Images/lighthouse/crumblingLighthouse.jpg";
             picFive.src = "./assets/Images/lighthouse/nubbleLighthouse.jpg";
             picSix.src = "./assets/Images/lighthouse/sunsetLighthouse.jpg";
+            currentTheme = 'lighthouse';
         }
-        else if (themeSelect.value === 'nature'){
+        else if (theme === 'nature'){
             picOne.src = "./assets/Images/nature/bridge.jpg";
             picTwo.src = "./assets/Images/nature/cherryNightRiver.jpg";
             picThree.src = "./assets/Images/nature/mountainLake.jpg";
             picFour.src = "./assets/Images/nature/sunRayTrail.jpg";
             picFive.src = "./assets/Images/nature/waterfall.jpg";
             picSix.src = "./assets/Images/nature/winterNight.jpg";
+            currentTheme = 'nature';
         }
-        else if (themeSelect.value === 'nebula'){
+        else if (theme === 'nebula'){
             picOne.src = "./assets/Images/nebula/blueEyeNebula.jpg";
             picTwo.src = "./assets/Images/nebula/butterflyNebula.jpg";
             picThree.src = "./assets/Images/nebula/eyeNebula.jpg";
             picFour.src = "./assets/Images/nebula/guitarPickNebula.jpg";
             picFive.src = "./assets/Images/nebula/manNebula.jpg";
-            picSix.src = "./assets/Images/nebula/tyeDyeNebula.jpg";
+            picSix.src = "./assets/Images/nebula/tyeDyeNebula.jpg"; 
+            currentTheme = 'nebula';
         };
+    }; //this function changes theme
+
+    themeSelect.onchange = () => {
+        changeTheme(themeSelect.value);
     };    
 
     let storeIt = function(){
@@ -305,7 +318,7 @@ $(document).ready(function(){
         localStorage.setItem('datePosition', currentDateTop);
         localStorage.setItem('timeShadowToggle', isShadowOnTime);
         localStorage.setItem('dateShadowToggle', isShadowOnDate);
-        localStorage.setItem('theme', document.querySelector('#theme-select').value);
+        localStorage.setItem('theme', currentTheme);
         localStorage.setItem('slideshowOn', slideOn);
         localStorage.setItem('slideSpeed', document.querySelector('#speed').value);
         //localStorage.setItem('settingsChecked', isChecked);
@@ -332,6 +345,10 @@ $(document).ready(function(){
         let getTheme = localStorage.getItem('theme');
         let getSlideshowOn = localStorage.getItem('slideshowOn');
         let getSlideSpeed = localStorage.getItem('slideSpeed');
+
+        if (getTheme !== null){
+            changeTheme(getTheme);
+        };
         
         if (getTimeFont !== null){
             currentTime.style.fontFamily = getTimeFont;
