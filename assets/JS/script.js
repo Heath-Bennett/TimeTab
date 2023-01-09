@@ -289,12 +289,42 @@ $(document).ready(function(){
             picFive.src = "./assets/Images/nebula/manNebula.jpg";
             picSix.src = "./assets/Images/nebula/tyeDyeNebula.jpg"; 
             currentTheme = 'nebula';
-        };
+        }
+        else if (theme === 'resetSlides'){
+            picOne.src = "./assets/Images/city.jpg";
+            picTwo.src = "./assets/Images/fallview.jpg";
+            picThree.src = "./assets/Images/golfCourse.jpg";
+            picFour.src = "./assets/Images/moon.jpg";
+            picFive.src = "./assets/Images/northernLights.webp";
+            picSix.src = "./assets/Images/redHouse.webp";
+            currentTheme = 'resetSlides';
+        }
+    
     }; //this function changes theme
 
     themeSelect.onchange = () => {
         changeTheme(themeSelect.value);
-    };    
+    }; //when a new theme is selected this calls the function that changes it
+
+    document.querySelector('#reset-settings').onclick = () => {
+        if (confirm('Do you want to reset settings?')){
+            changeTheme('resetSlides');
+            currentTime.style.fontFamily = '"Times New Roman", Times, Serif';
+            time.style.color = "#8C031C";
+            time.style.textShadow = '0 0 3px #ffffff, 0 0 5px #ffffff';
+            currentTime.style.fontStyle = "normal";
+            isTimeItalicPressed = 0;
+            isTimeBoldPressed = 0;
+            isTimeUnderlinePressed = 0;
+            currentTime.style.fontWeight = "normal";
+            currentTime.style.textDecoration = "none";
+            //currentTime.style.top = -100;
+            //currentDateTop = -30;
+        }
+        else {
+            alert('Settings will not be reset.');
+        }
+    };
 
     let storeIt = function(){
         let timeString = currentTime.style.textShadow;
