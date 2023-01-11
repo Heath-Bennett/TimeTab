@@ -5,7 +5,6 @@ $(document).ready(function(){
     const allMonths = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
     let slideShowSpeed = 15000;
     let slideIndex = 1;
-    let isChecked = 0;
     let isTimeItalicPressed = 0;
     let isTimeBoldPressed = 0;
     let isTimeUnderlinePressed = 0;
@@ -27,7 +26,6 @@ $(document).ready(function(){
     const currentTime = document.querySelector('#currTime');
     const selectFontDate =  document.querySelector('#font-select-date');
     const currentDate = document.querySelector('#currDate');
-    const saveSettings = document.querySelector('#save-settings');
     const themeSelect = document.querySelector('#theme-select');
     const picOne = document.querySelector('#picOne');
     const picTwo = document.querySelector('#picTwo');
@@ -318,8 +316,25 @@ $(document).ready(function(){
             isTimeUnderlinePressed = 0;
             currentTime.style.fontWeight = "normal";
             currentTime.style.textDecoration = "none";
-            //currentTime.style.top = -100;
-            //currentDateTop = -30;
+            currentTime.style.fontSize = '330px';
+            currentTimeTop = -30;
+            currentTime.style.top = `${currentTimeTop}px`;
+            currentDate.hidden = false;
+            isDateOn = 1;
+            document.querySelector('#toggle-date').value = 'On';
+            currentDate.style.fontFamily = '"Times New Roman", Times, Serif';
+            date.style.color = '#8C031C';
+            date.style.textShadow = '0 0 3px #ffffff, 0 0 5px #ffffff';
+            currentDate.style.fontStyle = "normal";
+            isDateItalicPressed = 0;
+            isDateBoldPressed = 0;
+            isDateUnderlinePressed = 0;
+            currentDate.style.fontWeight = 'normal';
+            currentDate.style.textDecoration = 'none';
+            currentDate.style.fontSize = '160px';
+            currentDateTop = -130;
+            currentDate.style.top = `${currentDateTop}px`;
+            
         }
         else {
             alert('Settings will not be reset.');
