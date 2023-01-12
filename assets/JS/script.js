@@ -334,7 +334,13 @@ $(document).ready(function(){
             currentDate.style.fontSize = '160px';
             currentDateTop = -130;
             currentDate.style.top = `${currentDateTop}px`;
-            
+            isShadowOnTime = 1;
+            isShadowOnDate = 1;
+            document.querySelector('#toggle-time-shadow').value = 'On';
+            document.querySelector('#toggle-date-shadow').value = 'On';
+            clearTimeout(t);
+            slideShowSpeed = 15000;
+            speedLabel.innerHTML = `Speed: ${slideShowSpeed/1000}`;
         }
         else {
             alert('Settings will not be reset.');
