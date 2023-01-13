@@ -535,11 +535,11 @@ $(document).ready(function(){
     selectFontDate.onchange = () => {
         if (selectFontDate.value === 'lobster'){
             currentDate.style.fontFamily = 'lobster, cursive';
-        //currentDate.style.fontSize = '120px'
+            currentDate.style.fontSize = '170px'
         }
         else if (selectFontDate.value === 'geostarFill'){
             currentDate.style.fontFamily = '"Geostar Fill", cursive';
-            //currentDate.style.fontSize = '70px'
+            currentDate.style.fontSize = '96px'
         }
         else if (selectFontDate.value === 'dancingScript'){
             currentDate.style.fontFamily = '"Dancing Script", cursive';
@@ -610,8 +610,8 @@ $(document).ready(function(){
     //start clock on load
     let init = function() {
         retrieveIt();
-        GetClock();
-        setInterval(GetClock, 1000);
+        //GetClock();
+        //setInterval(GetClock, 1000);
     };
 
     init();
