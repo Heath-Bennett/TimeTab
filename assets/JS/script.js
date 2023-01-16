@@ -19,6 +19,8 @@ $(document).ready(function(){
     let currentDateTop =-130;
     let currentTimeTop = -30;
     let currentTheme = '';
+    let timeFontSize = 330;
+    let dateFontSize = 160;
     const time = document.getElementById("currTime");
     const date = document.getElementById("currDate");
     const speedLabel = document.getElementById("speedLabel");
@@ -317,6 +319,7 @@ $(document).ready(function(){
             currentTime.style.fontWeight = "normal";
             currentTime.style.textDecoration = "none";
             currentTime.style.fontSize = '330px';
+            timeFontSize = 330;
             currentTimeTop = -30;
             currentTime.style.top = `${currentTimeTop}px`;
             currentDate.hidden = false;
@@ -332,6 +335,7 @@ $(document).ready(function(){
             currentDate.style.fontWeight = 'normal';
             currentDate.style.textDecoration = 'none';
             currentDate.style.fontSize = '160px';
+            dateFontSize = 160;
             currentDateTop = -130;
             currentDate.style.top = `${currentDateTop}px`;
             isShadowOnTime = 1;
@@ -346,6 +350,7 @@ $(document).ready(function(){
             alert('Settings will not be reset.');
         }
     };
+
 
     let storeIt = function(){
         let timeString = currentTime.style.textShadow;
@@ -372,6 +377,9 @@ $(document).ready(function(){
         localStorage.setItem('theme', currentTheme);
         localStorage.setItem('slideshowOn', slideOn);
         localStorage.setItem('slideSpeed', document.querySelector('#speed').value);
+        localStorage.setItem('fontSizeTime', timeFontSize);
+        localStorage.setItem('fontSizeDate', dateFontSize);
+        
         //localStorage.setItem('settingsChecked', isChecked);
     };
 
@@ -396,6 +404,18 @@ $(document).ready(function(){
         let getTheme = localStorage.getItem('theme');
         let getSlideshowOn = localStorage.getItem('slideshowOn');
         let getSlideSpeed = localStorage.getItem('slideSpeed');
+        let getFontSizeTime = localStorage.getItem('fontSizeTime');
+        let getFontSizeDate = localStorage.getItem('fontSizeDate');
+
+        if (getFontSizeTime !== null){
+            currentTime.style.fontSize = `${getFontSizeTime}px`;
+            timeFontSize = getFontSizeTime;
+        };
+
+        if (getFontSizeDate !== null){
+            currentDate.style.fontSize = `${getFontSizeDate}px`;
+            dateFontSize = getFontSizeDate;
+        };
 
         if (getTheme !== null){
             changeTheme(getTheme);
@@ -505,30 +525,38 @@ $(document).ready(function(){
         if (selectFontTime.value === 'lobster'){
             currentTime.style.fontFamily = 'lobster, cursive';
             currentTime.style.fontSize = '320px'
+            timeFontSize = 320;
         }
         else if (selectFontTime.value === 'geostarFill'){
             currentTime.style.fontFamily = '"Geostar Fill", cursive';
             currentTime.style.fontSize = '200px'
+            timeFontSize = 200;
         }
         else if (selectFontTime.value === 'dancingScript'){
             currentTime.style.fontFamily = '"Dancing Script", cursive';
             currentTime.style.fontSize = '310px'
+            timeFontSize = 310;
         }
         else if (selectFontTime.value === 'monoton'){
             currentTime.style.fontFamily = '"Monoton", cursive';
             currentTime.style.fontSize = '260px'
+            timeFontSize = 260;
+
         }
         else if (selectFontTime.value === 'permanentMarker'){
             currentTime.style.fontFamily = '"Permanent Marker", cursive';
             currentTime.style.fontSize = '280px'
+            timeFontSize = 280;
         }
         else if (selectFontTime.value === 'poorStory'){
             currentTime.style.fontFamily = '"Poor Story", cursive';
             currentTime.style.fontSize = '380px'
+            timeFontSize = 380;
         }
         else if (selectFontTime.value === 'xanhMono'){
             currentTime.style.fontFamily = '"Xanh Mono", monospace';
             currentTime.style.fontSize = '310px'
+            timeFontSize = 310;
         }
     };//this listens for the font-select-time drop down menu and applies the appropriate font
 
@@ -536,30 +564,37 @@ $(document).ready(function(){
         if (selectFontDate.value === 'lobster'){
             currentDate.style.fontFamily = 'lobster, cursive';
             currentDate.style.fontSize = '170px'
+            dateFontSize = 170;
         }
         else if (selectFontDate.value === 'geostarFill'){
             currentDate.style.fontFamily = '"Geostar Fill", cursive';
             currentDate.style.fontSize = '96px'
+            dateFontSize = 96;
         }
         else if (selectFontDate.value === 'dancingScript'){
             currentDate.style.fontFamily = '"Dancing Script", cursive';
-            //currentDate.style.fontSize = '120px'
+            currentDate.style.fontSize = '170px'
+            dateFontSize = 170;
         }
         else if (selectFontDate.value === 'monoton'){
             currentDate.style.fontFamily = '"Monoton", cursive';
-            //currentDate.style.fontSize = '80px'
+            currentDate.style.fontSize = '120px'
+            dateFontSize = 120;
         }
         else if (selectFontDate.value === 'permanentMarker'){
             currentDate.style.fontFamily = '"Permanent Marker", cursive';
-            //currentDate.style.fontSize = '100px'
+            currentDate.style.fontSize = '140px'
+            dateFontSize = 140;
         }
         else if (selectFontDate.value === 'poorStory'){
             currentDate.style.fontFamily = '"Poor Story", cursive';
-            //currentDate.style.fontSize = '130px'
+            currentDate.style.fontSize = '190px'
+            dateFontSize = 190;
         }
         else if (selectFontDate.value === 'xanhMono'){
             currentDate.style.fontFamily = '"Xanh Mono", monospace';
-            //currentDate.style.fontSize = '110px'
+            currentDate.style.fontSize = '156px'
+            dateFontSize = 156;
         }
     };//this listens for the font-select-date drop down menu and applies the appropriate font4
 

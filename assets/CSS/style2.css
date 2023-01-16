@@ -25,7 +25,14 @@ div.center {
 .active {
     background-color: #717171;
 }
-
+#hamburg-button {
+    display: block;
+    position: relative;
+    top: -760px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
 
 #currTime{
     font-size: 330px;
